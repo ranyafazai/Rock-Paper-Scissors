@@ -9,13 +9,8 @@ $(document).ready(function(){
             window.location.href=newPage;
         }
     });
-
-    $(document).ready(function() {
-        $("#scoresButton").click(function() {
-            window.location.href = "scores.html"; // Redirect to the scores page
-        });
-    
-    
+    $("#scoresButton").click(function() {
+        window.location.href = "scores.html"; // Redirect to the scores page
     });
 
     $(document).ready(function() {
@@ -24,6 +19,19 @@ $(document).ready(function(){
         });
     
     });
+// jQuery click event handler for user's choice
+$(document).ready(function() {
+    $('.choice').click(function() {
+        var userChoice = $(this).attr('id');
+        var username = getUsernameFromURL(); // Retrieve username
+        if (username) {
+            handleUserChoice(userChoice, username); // Pass the username if it exists
+        } else {
+            alert("Username not found."); // Alert if username is not found
+        }
+        animateHands(userChoice);
+    });
+});
 
    
         $(document).ready(function() {
