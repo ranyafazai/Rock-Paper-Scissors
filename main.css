@@ -5,7 +5,7 @@ body {
     text-align: center;
     background-image: url('https://i.gifer.com/g34j.gif');
     background-size: cover;
-    margin: 0;
+    margin: 500;
     padding: 0;
 }
 
@@ -40,11 +40,17 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #4CAF50;
-    color: white;
+    color: rgb(173, 41, 188);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
+}
+button:focus {
+    outline-color: transparent;
+    outline-style:solid;
+    box-shadow: 0 0 0 4px #5a01a7;
+    transition: 0.4s;
 }
 
 button:hover {

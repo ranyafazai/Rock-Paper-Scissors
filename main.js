@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     $(document).ready(function() {
         $("#scoresButton").click(function() {
-            window.location.href = "scores.html"; // Redirect to the scores page
+            window.location.href = "scores.html"; 
         });
     
     

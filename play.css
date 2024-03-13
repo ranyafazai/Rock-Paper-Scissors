@@ -1,9 +1,10 @@
-/* play.css */
+
 
 body {
-    font-family: Arial, sans-serif;
+    font-family:'Franklin Gothic Medium', sans-serif;
     text-align: center;
-    background-color: #f0f0f0;
+    background-image: url("https://mir-s3-cdn-cf.behance.net/projects/404/6874c1191717979.Y3JvcCwxMzgwLDEwODAsMjcwLDA.jpg");
+    background-size: cover;
 }
 
 h1 {
@@ -11,14 +12,14 @@ h1 {
 }
 
 .score {
-    margin-top: 20px;
+    margin-top: 200px;
 }
 
 .badge {
     display: inline-block;
-    width: 75px;
+    width: 100px;
     padding: 5px 10px;
-    background-color: #007bff;
+    background-color: #354e6a;
     color: #fff;
     font-weight: bold;
     border-radius: 5px;
@@ -36,14 +37,14 @@ h1 {
     align-items: center;
     width: 70px;
     height: 70px;
-    margin: 0 10px;
-    border-radius: 50%;
-    border: 2px solid #007bff;
+    margin: 0 50px;
+    border-radius: 20%;
+    border: 2px solid #3777bb;
 }
 
 .choice img {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
 }
 
@@ -55,7 +56,8 @@ h1 {
     opacity: 1;
 }
 .action-message {
-
-    margin-top: 20px;
-    font-size: 30px;
+    color: #3777bb;
+    font-family: 'GAME', sans-serif;
+    margin-top: 50px;
+    font-size: 50px;
 }

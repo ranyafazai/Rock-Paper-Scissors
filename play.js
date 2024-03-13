@@ -1,21 +1,20 @@
-// Variable to keep track of user and computer scores
+
 var userScore = 0;
 var computerScore = 0;
 
-// Function to extract username from URL query parameter
 function getUsernameFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('username');
 }
 
-// Function to get a random choice for the computer
+
 function getComputerChoice() {
     var choices = ['rock', 'paper', 'scissors'];
     var randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
 }
 
-// Function to handle the user's choice and determine the winner
+
 function handleUserChoice(userChoice) {
     var computerChoice = getComputerChoice();
     var result;
@@ -38,7 +37,6 @@ function handleUserChoice(userChoice) {
     updateScore(result);
 }
 
-// Function to update the score based on the result
 function updateScore(winner) {
     if (winner === 'user') {
         userScore++;
@@ -52,14 +50,13 @@ function updateScore(winner) {
     $('#user-score').text(userScore);
     $('#computer-score').text(computerScore);
 
-    // Check if any player reached 10 wins
+
     if (userScore === 10 || computerScore === 10) {
         endGame();
     }
 }
 
 
-// Function to end the game and display the winner
 function endGame() {
     if (userScore === 10) {
         alert("Congratulations! You win! ");
@@ -67,16 +64,14 @@ function endGame() {
         alert("Sorry! Computer wins!");
     }
 
-    // Reset scores
     userScore = 0;
     computerScore = 0;
 
-    // Reset scoreboard display
     $('#user-score').text(userScore);
     $('#computer-score').text(computerScore);
 }
 
-// jQuery click event handler for user's choice
+
 $(document).ready(function() {
     $('.choice').click(function() {
         var userChoice = $(this).attr('id');
@@ -85,7 +80,6 @@ $(document).ready(function() {
     });
 });
 
-// Code to run on document ready
 $(document).ready(function(){
     var username = getUsernameFromURL();
     if (username) {
