@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
    
+
+    <link href="https://fonts.cdnfonts.com/css/game" rel="stylesheet">
     <link rel="stylesheet" href="play.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +12,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body> 
-   
-    <div class="action-message">Make your move</div>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/game');
+        </style>
+    <marquee class="action-message" direction="right" scrollamount="20">^^ Make Your Move ^^ Make Your Move ^^ Make Your Move ^^</marquee>
 
     <div class="score">
         <div id="user-label" class="badge">User</div>
@@ -20,6 +25,7 @@
         <span id="computer-score">0</span>
         <div id="computer-label" class="badge">Computer</div>
     </div>
+    <p style="font-size: 35px;">ready!</p>
 
     <div class="choices">
         <div class="choice" id="rock"><img src="https://nehalhazem.github.io/rockPaperScissors.io/img/rock.png" width="50" alt=""></div>

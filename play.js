@@ -2,10 +2,14 @@
 var userScore = 0;
 var computerScore = 0;
 
+
 function getUsernameFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('username');
 }
+
+
+
 
 
 function getComputerChoice() {
@@ -24,39 +28,69 @@ function handleUserChoice(userChoice) {
 
     if (userChoice === computerChoice) {
         result = "tie";
-    } else if (
-        (userChoice === 'rock' && computerChoice === 'scissors') ||
-        (userChoice === 'paper' && computerChoice === 'rock') ||
-        (userChoice === 'scissors' && computerChoice === 'paper')
-    ) {
+        $("p").text("tie!")
+    } else if  (userChoice === 'rock' && computerChoice === 'scissors') {
+        result="user"
+        $("p").text("Computer picks scissors. You WIN")
+    } else if(userChoice === 'paper' && computerChoice === 'rock'){
+        result="user"
+        $("p").text("Computer picks rock. You WIN ")
+    }  else if (userChoice === 'scissors' && computerChoice === 'paper')
+     {
+        $("p").text("Computer picks paper. You WIN")
         result = "user";
-    } else {
+    } 
+    else if  (computerChoice === 'rock' && userChoice === 'scissors') {
+        result="computer"
+        $("p").text("Computer picks rock. You LOSE")
+    } else if(computerChoice === 'paper' && userChoice === 'rock'){
+        result="computer"
+        $("p").text("Computer picks paper. You LOSE ")
+    }  else if (computerChoice === 'scissors' && userChoice === 'paper')
+     {
+        $("p").text("Computer picks scissors. You LOSE")
         result = "computer";
-    }
+    } 
 
     updateScore(result);
 }
 
-function updateScore(winner) {
+// Function to update the score based on the result and store in local storage
+function updateScore(winner, username) {
     if (winner === 'user') {
         userScore++;
     } else if (winner === 'computer') {
         computerScore++;
     }
 
-    console.log("User Score:", userScore);
-    console.log("Computer Score:", computerScore);
-
+    // Update the scores on the page
     $('#user-score').text(userScore);
     $('#computer-score').text(computerScore);
 
+    // Retrieve the scores history from local storage
+    var scoresHistory = JSON.parse(localStorage.getItem('scoresHistory')) || [];
 
+    // Store the current result along with the username in the scores history
+    scoresHistory.push({ username: username, userScore: userScore, computerScore: computerScore });
+
+    // Log the scores history to console for debugging
+    console.log("Scores History:", scoresHistory);
+
+    // Update the scores history in local storage
+    localStorage.setItem('scoresHistory', JSON.stringify(scoresHistory));
+
+    // Check if any player reached 10 wins
     if (userScore === 10 || computerScore === 10) {
         endGame();
     }
 }
 
 
+
+
+
+
+// Function to end the game and display the winner
 function endGame() {
     if (userScore === 10) {
         alert("Congratulations! You win! ");
@@ -75,10 +109,17 @@ function endGame() {
 $(document).ready(function() {
     $('.choice').click(function() {
         var userChoice = $(this).attr('id');
-        handleUserChoice(userChoice);
+        var username = getUsernameFromURL(); // Retrieve username
+        handleUserChoice(userChoice, username); // Pass the username
         animateHands(userChoice);
     });
 });
+
+// Function to extract username from URL parameter
+function getUsernameFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('username');
+}
 
 $(document).ready(function(){
     var username = getUsernameFromURL();
