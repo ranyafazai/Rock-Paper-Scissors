@@ -2,11 +2,7 @@
 var userScore = 0;
 var computerScore = 0;
 
-// Function to extract username from URL query parameter
-function getUsernameFromURL() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('username');
-}
+
 
 // Function to get a random choice for the computer
 function getComputerChoice() {
@@ -114,8 +110,12 @@ $(document).ready(function() {
     });
 });
 
+// Function to extract username from URL parameter
+function getUsernameFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('username');
+}
 
-// Code to run on document ready
 $(document).ready(function(){
     var username = getUsernameFromURL();
     if (username) {

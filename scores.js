@@ -1,9 +1,9 @@
 $(document).ready(function() {
     $(document).ready(function() {
         var scoresHistory = [
-            { username: "John", userScore: 5, computerScore: 7 },
-            { username: "Alice", userScore: 8, computerScore: 2 },
-            { username: "Bob", userScore: 3, computerScore: 6 }
+            { username: "basyouni", userScore: 5, computerScore: 10 },
+            { username: "ranouch", userScore: 10, computerScore: 3},
+            { username: "raslenSnoopy", userScore: 10, computerScore: 8 }
         ];
     
         scoresHistory.forEach(function(entry) {
